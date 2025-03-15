@@ -1,9 +1,10 @@
-文件描述符：  
+# 第三章--文件输入输出
+## 文件描述符：
 - 0：标准输入，默认从键盘输入 STDIN_FILENO
 - 1：标准输出，默认显示到屏幕 STDOUT_FILENO
 - 2：标准错误，默认显示到屏幕 STDERR_FILENO
 
-函数 open 和 openat  
+_函数 open 和 openat_  
 #include <fcntl.h>  
 int open(const char *path, int flags, mode_t mode)
 int openat(int fd, const char *path,int flags, mode_t mode)
@@ -71,7 +72,7 @@ fsync: 只对fd指向的文件起作用，并且等待写磁盘操作完成才�
 fdatasync: 类似fsync, 但是只对文件的数据部分起作用，不包含文件属性部分
 
 
-函数 fcntl  
+_函数 fcntl_  
 #include <fcntl.h>  
 int fcntl(int fd, int cmd, ... /* arg */ ); //若成功依赖于cmd, 失败则返回-1
 fcntl函数的5个功能：
