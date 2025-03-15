@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "open_creat.h": "c",
+        "cstdlib": "c",
+        "header.h": "c"
+    }
+}

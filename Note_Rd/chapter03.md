@@ -40,12 +40,50 @@ int close (int fd); //成功返回0，出错返回-1
 函数 lseek
 #include <unistd.h>
 off_t lseek(int fd, off_t offset, int whence); //若成功，返回新的文件偏移量；若出错，返回为-1
+whence:
+- SEEK_SET: 从文件开始
+- SEEK_CUR: 从当前位置
+- SEEK_END: 从文件末尾
 
 函数 read
 #include <unistd.h>
 ssize_t read(int fd, void *buf, size_t count); //成功返回实际读取的字节数，若出错，返回-1
 
+
 函数 write
 #include <unistd.h>
 ssize_t write(int fd, const void *buf, size_t nbytes); //若成功返回已写的字节数；若出错，返回-1
+
+
+函数 dup 和 dup2
+#include <unistd.h>
+int dup(int fd); //复制一个文件描述符，成功返回复制后的文件描述符，出错返回-1
+int dup2(int fd, int fd2); //复制一个文件描述符，并将复制后的文件描述符赋给fd2，成功返回0，出错返回-1
+
+
+函数 sync、fsync 和 fdatasync
+#include <unistd.h>
+void sync(void);
+int fsync(int fd);
+int fdatasync(int fd);
+sync: 只是将修改过的块缓冲区排入写队列，并不等待实际写磁盘操作
+fsync: 只对fd指向的文件起作用，并且等待写磁盘操作完成才返回
+fdatasync: 类似fsync, 但是只对文件的数据部分起作用，不包含文件属性部分
+
+
+函数 fcntl
+#include <fcntl.h>
+int fcntl(int fd, int cmd, ... /* arg */ ); //若成功依赖于cmd, 失败则返回-1
+fcntl函数的5个功能：
+- cmd = F_DUPFD或F_DUPFD_CLOEXEC: 复制一个文件描述符，并返回复制后的文件描述符
+- cmd = F_GETFD或F_SETFD: 获取或设置文件描述符的标志
+- cmd = F_GETFL或F_SETFL: 获取或设置文件描述符的状态标志
+- cmd = F_GETLK或F_SETLK或F_SETLKW: 获取或设置文件锁
+- cmd = F_GETOWN或F_SETOWN: 获取或设置进程接收SIGIO信号的权利
+
+
+函数 ioctl
+#include <unistd.h>
+#include <sys/ioctl.h>
+int ioctl(int fd, int request, ... /* arg */ ); //若出错返回-1，若成功返回其他值
 
