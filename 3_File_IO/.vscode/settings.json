@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "fcntl.h": "c",
+        "open_create.h": "c",
+        "stdio.h": "c",
+        "tools.h": "c",
+        "stdarg.h": "c",
+        "errno.h": "c",
+        "string.h": "c",
+        "assert.h": "c",
+        "types.h": "c",
+        "time.h": "c"
+    }
+}
