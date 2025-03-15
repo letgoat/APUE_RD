@@ -1,10 +1,10 @@
-文件描述符：
+文件描述符：  
 - 0：标准输入，默认从键盘输入 STDIN_FILENO
 - 1：标准输出，默认显示到屏幕 STDOUT_FILENO
 - 2：标准错误，默认显示到屏幕 STDERR_FILENO
 
-函数 open 和 openat:
-#include <fcntl.h>
+函数 open 和 openat  
+#include <fcntl.h>  
 int open(const char *path, int flags, mode_t mode)
 int openat(int fd, const char *path,int flags, mode_t mode)
 flags:
@@ -29,40 +29,40 @@ S_IWOTH: 其他写权限
 S_IXOTH: 其他执行权限
 
 
-函数 create
-#include <fcntl.h>
+函数 create  
+#include <fcntl.h>  
 int create(const char *path, mode_t mode); //若成功则返回只写打开的文件描述符；若出错，返回-1
 
-函数 close
-#include <unistd.h>
+函数 close  
+#include <unistd.h>  
 int close (int fd); //成功返回0，出错返回-1
 
-函数 lseek
-#include <unistd.h>
+函数 lseek  
+#include <unistd.h>  
 off_t lseek(int fd, off_t offset, int whence); //若成功，返回新的文件偏移量；若出错，返回为-1
 whence:
 - SEEK_SET: 从文件开始
 - SEEK_CUR: 从当前位置
 - SEEK_END: 从文件末尾
 
-函数 read
-#include <unistd.h>
+函数 read  
+#include <unistd.h>  
 ssize_t read(int fd, void *buf, size_t count); //成功返回实际读取的字节数，若出错，返回-1
 
 
-函数 write
-#include <unistd.h>
+函数 write  
+#include <unistd.h>  
 ssize_t write(int fd, const void *buf, size_t nbytes); //若成功返回已写的字节数；若出错，返回-1
 
 
-函数 dup 和 dup2
-#include <unistd.h>
+函数 dup 和 dup2  
+#include <unistd.h>  
 int dup(int fd); //复制一个文件描述符，成功返回复制后的文件描述符，出错返回-1
 int dup2(int fd, int fd2); //复制一个文件描述符，并将复制后的文件描述符赋给fd2，成功返回0，出错返回-1
 
 
-函数 sync、fsync 和 fdatasync
-#include <unistd.h>
+函数 sync、fsync 和 fdatasync  
+#include <unistd.h>  
 void sync(void);
 int fsync(int fd);
 int fdatasync(int fd);
@@ -71,8 +71,8 @@ fsync: 只对fd指向的文件起作用，并且等待写磁盘操作完成才�
 fdatasync: 类似fsync, 但是只对文件的数据部分起作用，不包含文件属性部分
 
 
-函数 fcntl
-#include <fcntl.h>
+函数 fcntl  
+#include <fcntl.h>  
 int fcntl(int fd, int cmd, ... /* arg */ ); //若成功依赖于cmd, 失败则返回-1
 fcntl函数的5个功能：
 - cmd = F_DUPFD或F_DUPFD_CLOEXEC: 复制一个文件描述符，并返回复制后的文件描述符
@@ -82,8 +82,8 @@ fcntl函数的5个功能：
 - cmd = F_GETOWN或F_SETOWN: 获取或设置进程接收SIGIO信号的权利
 
 
-函数 ioctl
-#include <unistd.h>
-#include <sys/ioctl.h>
+函数 ioctl  
+#include <unistd.h>  
+#include <sys/ioctl.h>  
 int ioctl(int fd, int request, ... /* arg */ ); //若出错返回-1，若成功返回其他值
 
