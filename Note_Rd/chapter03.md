@@ -4,8 +4,8 @@
 - 1：标准输出，默认显示到屏幕 STDOUT_FILENO
 - 2：标准错误，默认显示到屏幕 STDERR_FILENO
 
-## 重要函数：
-**函数 open 和 openat_** 
+## 重要函数：  
+### 函数 open 和 openat_### 
 #include <fcntl.h>  
 int open(const char *path, int flags, mode_t mode)
 int openat(int fd, const char *path,int flags, mode_t mode)
@@ -31,7 +31,7 @@ S_IWOTH: 其他写权限
 S_IXOTH: 其他执行权限
 
 
-**函数 create**  
+#### 函数 create####  
 #include <fcntl.h>  
 int create(const char *path, mode_t mode); //若成功则返回只写打开的文件描述符；若出错，返回-1
 
@@ -47,7 +47,7 @@ whence:
 - SEEK_CUR: 从当前位置
 - SEEK_END: 从文件末尾
 
-**函数 read**  
+函数 read
 #include <unistd.h>  
 ssize_t read(int fd, void *buf, size_t count); //成功返回实际读取的字节数，若出错，返回-1
 
