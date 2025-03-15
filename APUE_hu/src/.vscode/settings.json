@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "header.h": "c",
+        "dup_dup2.h": "c",
+        "open_creat.h": "c",
+        "stdio.h": "c",
+        "fcntl.h": "c",
+        "pread_pwrite.h": "c",
+        "assert.h": "c",
+        "string.h": "c",
+        "stdarg.h": "c",
+        "errno.h": "c",
+        "tools.h": "c"
+    }
+}

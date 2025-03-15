@@ -12,7 +12,22 @@ flags:
 - O_WRONLY：只写打开
 - O_RDWR：读写打开
 - O_EXEC: 只执行打开
-- O_SEARCH: 只搜索打开（应用于目录）
+- O_SEARCH: 只搜索打开（应用于目录
+- O_APPEND: 每次写都追加到文件的末尾
+- O_CREAT: 若文件不存在，则创建文件
+- O_EXCL: 如果同时指定O_CREAT,而文件已经存在，则出错。用此可以测试一个文件是否存在，如果不存在则创建文件
+
+mode_t:
+S_IRUSR: 所有者读权限
+S_IWUSR: 所有者写权限
+S_IXUSR: 所有者执行权限
+S_IRGRP: 同组读权限
+S_IWGRP: 同组写权限
+S_IXGRP: 同组执行权限
+S_IROTH: 其他读权限
+S_IWOTH: 其他写权限
+S_IXOTH: 其他执行权限
+
 
 函数 create
 #include <fcntl.h>
