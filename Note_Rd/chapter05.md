@@ -48,3 +48,12 @@ int fclose(FILE *fp)
 
 ## 5.5 读和写流
 一旦打开流，则可在3种不同类型的非格式化I/O中进行选择，对其进行读，写操作  
+- 字符I/O：一次读或写一个字符，如果流是带缓冲的，则标准I/O函数处理所有缓冲  
+- 行I/O：如果想要一次读或写一行，则使用fgets和fputs函数，每行以一个换行符终止。当调用fgets时，应说明能处理的最大行数  
+- 直接I/O：fread和fwrite函数支持这种类型的I/O  
+
+## 5.6 每次一行I/O
+include <stdio.h>  
+char *fgets(char *restrict s, int n, FILE *restrict fp);  
+char *gets(char *buf);  
+//若成功，返回buf；若已经到达文件末尾或出错，返回NULL  
