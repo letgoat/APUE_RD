@@ -53,3 +53,9 @@ void *malloc(size_t size);
 void *calloc(size_t nobj, size_t size);  
 void *realloc(void *ptr, size_t size);  
 //3个函数若成功返回非空指针，如果出错，返回NULL  
+
+void free(void *ptr);  
+
+## 7.8 环境变量  
+
+
